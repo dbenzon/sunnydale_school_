@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sunnydale School</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f8f3ef, #e9ddd0, #d9c2a8);
+      color: #3e2a1f;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: linear-gradient(90deg, #8b5e3c, #6f442a);
+      padding: 40px 20px;
+      text-align: center;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    header h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #ffdd9e;
+      margin: 0;
+      letter-spacing: 1.5px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background: #6f442a;
+      padding: 14px 0;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 2px solid #e8d9c0;
+    }
+
+    nav a {
+      color: #fdf6ec;
+      margin: 0 20px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.05rem;
+      position: relative;
+      transition: color 0.3s;
+    }
+
+    nav a:hover { color: #ffdd9e; }
+
+    nav a::after {
+      content: "";
+      display: block;
+      width: 0%;
+      height: 3px;
+      background: #ffdd9e;
+      transition: width 0.3s;
+      margin: auto;
+      border-radius: 2px;
+    }
+
+    nav a:hover::after { width: 100%; }
+
+    main { padding: 30px 15px; }
+
+    section {
+      max-width: 950px;
+      margin: 35px auto;
+      padding: 32px;
+      background: #fffdf9;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+      transition: transform .3s, box-shadow .3s;
+    }
+
+    section:hover {
+      transform: scale(1.02);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.15);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 18px;
+      font-size: 1.8rem;
+      font-weight: 600;
+    }
+
+    #mission h2 { color: #3cb371; }
+    #upcoming-events h2 { color: #ff8c69; }
+    #contact h2 { color: #2e8b8b; }
+
+    p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      text-align: center;
+      color: #3e2a1f;
+    }
+
+    #upcoming-events {
+      background: #fff6eb;
+    }
+
+    ul { list-style: none; padding: 0; }
+
+    li {
+      background: #f7e3c6;
+      margin: 12px 0;
+      padding: 16px 20px;
+      border-radius: 12px;
+      font-weight: 500;
+      font-size: 1.05rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: all 0.3s;
+    }
+
+    li:hover {
+      background: #f2d6b3;
+      transform: translateX(10px);
+    }
+
+    .outdoor {
+      background-color: #d1f0f0;
+      border-left: 6px solid #20b2aa;
+    }
+
+    .section {
+      background-color: #faf6f6;
+      padding: 14px;
+      border-radius: 14px;
+    }
+
+    .contact-card {
+      text-align: center;
+    }
+
+    .contact-card a {
+      display: inline-block;
+      margin: 12px;
+      padding: 14px 28px;
+      background: linear-gradient(135deg, #6f442a, #c58b5c);
+      color: #fffaf4;
+      text-decoration: none;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 1rem;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+      transition: all 0.3s;
+    }
+
+    .contact-card a:hover {
+      background: linear-gradient(135deg, #8b5e3c, #ffdd9e);
+      color: #3e2a1f;
+      transform: scale(1.08);
+    }
+
+    #toast {
+      visibility: hidden;
+      min-width: 220px;
+      margin-left: -110px;
+      background-color: #3e2a1f;
+      color: #fff;
+      text-align: center;
+      border-radius: 8px;
+      padding: 12px;
+      position: fixed;
+      z-index: 99;
+      left: 50%;
+      bottom: 30px;
+      font-size: 15px;
+    }
+
+    #toast.show {
+      visibility: visible;
+      animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    }
+
+    @keyframes fadein { from { bottom: 0; opacity: 0; } to { bottom: 30px; opacity: 1; } }
+    @keyframes fadeout { from { bottom: 30px; opacity: 1; } to { bottom: 0; opacity: 0; } }
+
+    footer {
+      text-align: center;
+      padding: 22px;
+      margin-top: 45px;
+      background: linear-gradient(90deg, #8b5e3c, #6f442a);
+      color: #ffdd9e;
+      font-size: 0.95rem;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Sunnydale School</h1>
+  </header>
+
+  <nav>
+    <a href="#mission">Mission</a>
+    <a href="#upcoming-events">Events</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <main>
+    <section id="mission">
+      <h2>Our Mission</h2>
+      <p>
+        At Sunnydale School, we believe learning should feel warm,inspiring, and full of heart. Each student carries a spark of creativity waiting to shine, and we nurture that spark with care,confidence, and kindness. Our mission is to create a home of knowledge where dreams are encouraged,friendships, and every learner grows with both wisdom and grace, like a journey painted in soft shades of hope and possibility.
+      </p>
+    </section>
+
+    <section id="upcoming-events">
+      <h2>Upcoming Events</h2>
+      <ul>
+        <li data-event-type="indoor" title="Event Type: Indoor">
+          Science Fair – <span style="font-weight:bold; color:red;">September 15, 2025</span>
+        </li>
+        <li data-event-type="indoor" title="Event Type: Indoor">
+          Parent-Teacher Conference – <span style="font-weight:bold; color:red;">October 2, 2025</span>
+        </li>
+        <li class="outdoor" data-event-type="outdoor" title="Event Type: Outdoor">
+          Sports Festival – <span style="font-weight:bold; color:red;">November 10, 2025</span>
+        </li>
+        <li class="outdoor" data-event-type="outdoor" title="Event Type: Outdoor">
+          Christmas Program – <span style="font-weight:bold; color:red;">December 20, 2025</span>
+        </li>
+      </ul>
+    </section>
+
+    <section id="contact" class="contact-card">
+      <h2>Contact Us</h2>
+      <div class="section">
+        <p>Curious about life at Sunnydale School? Whether you have questions, ideas, or simply wish to connect, we’re always here to listen and share. Reach out to us and let’s keep the conversation warm, welcoming, and inspiring, just like our community.<br>
+        We’re just a note away, ready to listen with kindness and care. ^_^ ⁠♡</p>
+        <p>
+          ✉️ Email:
+          <a href="mailto:info@sunnydale.edu" title="Click to copy email" onclick="copyToClipboard('info@sunnydale.edu')">info@sunnydale.edu</a>
+        </p>
+        <p>
+          📞 Phone:
+          <a href="tel:+639123456789" title="Click to copy phone" onclick="copyToClipboard('+63 912 345 6789')">+63 912 345 6789</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Sunnydale School. All Rights Reserved.
+  </footer>
+
+  <div id="toast">Thanks for reaching out!</div>
+
+  <script>
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text).then(function() {
+        let toast = document.getElementById("toast");
+        toast.className = "show";
+        setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000);
+      });
+    }
+  </script>
+
+</body>
+</html>
